@@ -92,7 +92,7 @@
            TRANSICIÓN CON OBJETOS
         ========================= */
 
-       .transicion {
+      .transicion {
     display: none;
     position: fixed;
     inset: 0;
@@ -108,31 +108,34 @@
     display: block;
     color: #ff69a6;
     text-shadow: 0 0 15px #ff69a6;
-    animation: flotar 3s ease-in-out infinite;
+    animation-name: flotar;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
-.objeto1  { top: 8%;  left: 10%; font-size: 42px; }
-.objeto2  { top: 12%; right: 18%; font-size: 30px; }
-.objeto3  { top: 28%; left: 25%; font-size: 52px; }
-.objeto4  { top: 18%; right: 38%; font-size: 35px; }
-.objeto5  { top: 45%; left: 8%; font-size: 28px; }
-.objeto6  { top: 55%; right: 12%; font-size: 48px; }
-.objeto7  { top: 72%; left: 18%; font-size: 34px; }
-.objeto8  { top: 80%; right: 30%; font-size: 55px; }
-.objeto9  { top: 35%; right: 7%; font-size: 30px; }
-.objeto10 { top: 65%; left: 42%; font-size: 38px; }
-.objeto11 { top: 5%;  left: 45%; font-size: 25px; }
-.objeto12 { top: 88%; left: 8%; font-size: 42px; }
-.objeto13 { top: 40%; left: 48%; font-size: 26px; }
-.objeto14 { top: 25%; left: 70%; font-size: 45px; }
-.objeto15 { top: 60%; right: 42%; font-size: 32px; }
-.objeto16 { top: 75%; right: 8%; font-size: 25px; }
-.objeto17 { top: 92%; left: 50%; font-size: 45px; }
-.objeto18 { top: 50%; left: 60%; font-size: 35px; }
-.objeto19 { top: 15%; left: 78%; font-size: 25px; }
-.objeto20 { top: 82%; left: 70%; font-size: 38px; }
+.objeto1  { top: 8%;  left: 10%; font-size: 42px; animation-duration: 3.2s; }
+.objeto2  { top: 12%; right: 18%; font-size: 30px; animation-duration: 4.1s; }
+.objeto3  { top: 28%; left: 25%; font-size: 52px; animation-duration: 2.7s; }
+.objeto4  { top: 18%; right: 38%; font-size: 35px; animation-duration: 3.8s; }
+.objeto5  { top: 45%; left: 8%; font-size: 28px; animation-duration: 4.5s; }
+.objeto6  { top: 55%; right: 12%; font-size: 48px; animation-duration: 3.5s; }
+.objeto7  { top: 72%; left: 18%; font-size: 34px; animation-duration: 2.9s; }
+.objeto8  { top: 80%; right: 30%; font-size: 55px; animation-duration: 4.2s; }
+.objeto9  { top: 35%; right: 7%; font-size: 30px; animation-duration: 3.1s; }
+.objeto10 { top: 65%; left: 42%; font-size: 38px; animation-duration: 4.7s; }
+.objeto11 { top: 5%;  left: 45%; font-size: 25px; animation-duration: 2.6s; }
+.objeto12 { top: 88%; left: 8%; font-size: 42px; animation-duration: 3.9s; }
+.objeto13 { top: 40%; left: 48%; font-size: 26px; animation-duration: 4.4s; }
+.objeto14 { top: 25%; left: 70%; font-size: 45px; animation-duration: 3.3s; }
+.objeto15 { top: 60%; right: 42%; font-size: 32px; animation-duration: 2.8s; }
+.objeto16 { top: 75%; right: 8%; font-size: 25px; animation-duration: 4.6s; }
+.objeto17 { top: 92%; left: 50%; font-size: 45px; animation-duration: 3.6s; }
+.objeto18 { top: 50%; left: 60%; font-size: 35px; animation-duration: 4.0s; }
+.objeto19 { top: 15%; left: 78%; font-size: 25px; animation-duration: 3.7s; }
+.objeto20 { top: 82%; left: 70%; font-size: 38px; animation-duration: 4.3s; }
 
 @keyframes flotar {
+
     0% {
         transform: translateY(0) rotate(0deg);
     }
@@ -144,6 +147,7 @@
     100% {
         transform: translateY(0) rotate(0deg);
     }
+
 }
         /* =========================
            TARJETA DE CUMPLEAÑOS
