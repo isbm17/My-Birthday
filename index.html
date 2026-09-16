@@ -48,6 +48,60 @@ h1 {
     color: #444;
     font-size: 17px;
     margin-top: 30px;
+
+    .entrada {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.entrada .mini-titulo {
+    color: #ff69a6;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.entrada h1 {
+    color: white;
+    font-size: 42px;
+    margin: 20px 0 10px;
+}
+
+.entrada > p:not(.mini-titulo) {
+    color: #ddd;
+    font-size: 18px;
+}
+
+.entrada input {
+    width: 280px;
+    padding: 15px;
+    margin: 20px 0;
+    border: 2px solid #ff69a6;
+    border-radius: 30px;
+    background-color: #111;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+}
+
+.entrada input::placeholder {
+    color: #999;
+}
+
+.entrada button {
+    padding: 14px 30px;
+    border: 2px solid #ff69a6;
+    border-radius: 30px;
+    background-color: #ff69a6;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
 }
     </style>
 </head>
