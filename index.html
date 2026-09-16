@@ -151,9 +151,10 @@ h1 {
 
         localStorage.setItem("nombreInvitado", nombre);
 
-        alert("Nombre guardado: " + nombre);
+        document.querySelector(".entrada").style.display = "none";
+
+        document.querySelector(".invitacion").style.display = "block";
     }
-        
 </script>
     
 </body>
