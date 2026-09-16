@@ -348,50 +348,55 @@
 
     <script>
 
-        function entrar() {
+      <script>
 
-            const nombre =
-                document.getElementById("nombre").value.trim();
+    function entrar() {
 
-
-            if (nombre === "") {
-
-                alert("Por favor, escribe tu nombre ♡");
-
-                return;
-
-                setTimeout(function() {
-
-    document
-        .getElementById("transicion")
-        .classList.add("explotando");
-
-}, 3000);
-
-            }
+        const nombre =
+            document.getElementById("nombre").value.trim();
 
 
-            /* Guardamos el nombre del invitado */
+        if (nombre === "") {
 
-            localStorage.setItem(
-                "nombreInvitado",
-                nombre
-            );
+            alert("Por favor, escribe tu nombre ♡");
 
-
-            /* Ocultamos la pantalla inicial */
-
-            document.querySelector(".entrada").style.display = "none";
-
-
-            /* Mostramos la transición */
-
-            document.getElementById("transicion").style.display = "block";
+            return;
 
         }
 
-    </script>
 
+        /* Guardamos el nombre del invitado */
+
+        localStorage.setItem(
+            "nombreInvitado",
+            nombre
+        );
+
+
+        /* Ocultamos la pantalla inicial */
+
+        document.querySelector(".entrada").style.display = "none";
+
+
+        /* Mostramos la transición */
+
+        const transicion =
+            document.getElementById("transicion");
+
+        transicion.style.display = "block";
+
+
+        /* Después de 3 segundos comienza el movimiento */
+
+        setTimeout(function() {
+
+            transicion.classList.add("explotando");
+
+        }, 3000);
+
+    }
+
+</script>
 
 </body>
 </html>
