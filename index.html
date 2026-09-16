@@ -7,253 +7,345 @@
     <title>Mi cumpleaños</title>
 
     <style>
+
+        /* =========================
+           FONDO GENERAL
+        ========================= */
+
         body {
-          background-color: #0b0b0b;
+            background-color: #0b0b0b;
             font-family: Arial, sans-serif;
             text-align: center;
             padding-top: 100px;
+            margin: 0;
         }
 
-   .invitacion {
-    width: 90%;
-    max-width: 550px;
-    min-height: 500px;
-    margin: 0 auto;
-    padding: 50px 35px;
-    box-sizing: border-box;
 
-    background: linear-gradient(135deg, #ffd6e7, #fff0f7);
-    border: 4px solid #ff69a6;
-    border-radius: 30px;
+        /* =========================
+           PANTALLA DE ENTRADA
+        ========================= */
 
-    box-shadow:
-        10px 10px 0px #111,
-        0px 0px 25px rgba(255, 105, 166, 0.7);
+        .entrada {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-    position: relative;
-    overflow: hidden;
-}
-.invitacion::before {
-    content: "♡";
-    position: absolute;
-    top: 15px;
-    left: 25px;
-    font-size: 35px;
-    color: #ff69a6;
-    transform: rotate(-15deg);
-}
+        .entrada .mini-titulo {
+            color: #ff69a6;
+            font-size: 14px;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
 
-.invitacion::after {
-    content: "✦";
-    position: absolute;
-    bottom: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: #ff2f92;
-    transform: rotate(15deg);
-}
+        .entrada h1 {
+            color: white;
+            font-size: 42px;
+            margin: 20px 0 10px;
+        }
 
-.invitacion h1 {
-    color: #ff2f92;
-    font-size: 75px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin: 35px 0 20px;
-    text-shadow: 4px 4px 0px #111;
-}
+        .entrada p {
+            color: #f5dce8;
+            font-size: 18px;
+        }
 
-.invitacion .mini-titulo {
-    color: #111;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 6px;
-}
+        .entrada .pequeno {
+            color: #f5b6d2;
+            font-size: 12px;
+            margin-top: 25px;
+        }
 
-.invitacion .nombre {
-    color: #111;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 6px;
-    margin-top: 10px;
-}
+        .entrada input {
+            width: 280px;
+            padding: 15px;
+            margin: 20px 0;
+            border: 2px solid #ff69a6;
+            border-radius: 30px;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
 
-.invitacion .frase {
-    color: #555;
-    font-size: 16px;
-    margin-top: 35px;
-}
-.mini-titulo {
-    color: #111;
-    font-size: 14px;
-    letter-spacing: 4px;
-}
+        .entrada input::placeholder {
+            color: #999;
+        }
 
-h1 {
-    color: #ff2f92;
-    font-size: 65px;
-    line-height: 0.9;
-    margin: 25px 0;
-}
+        .entrada button {
+            padding: 14px 30px;
+            border: 2px solid #ff69a6;
+            border-radius: 30px;
+            background-color: #ff69a6;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
 
-.nombre {
-    color: #111;
-    font-size: 28px;
-    letter-spacing: 8px;
-    font-weight: bold;
-}
 
-.frase {
-    .invitacion .mini-titulo {
-    color: #ff2f92;
-    font-size: 14px;
-    letter-spacing: 5px;
-    font-weight: bold;
-}
+        /* =========================
+           TRANSICIÓN CON OBJETOS
+        ========================= */
 
-.invitacion h1 {
-    color: #ff2f92;
-    font-size: 65px;
-    line-height: 0.9;
-    margin: 25px 0 15px;
-    letter-spacing: 3px;
-}
+        .transicion {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: #0b0b0b;
+            overflow: hidden;
+            z-index: 10;
+        }
 
-.invitacion .nombre {
-    color: #111;
-    font-size: 22px;
-    letter-spacing: 5px;
-    font-weight: bold;
-}
+        .objeto {
+            position: absolute;
+            color: #ff69a6;
+            font-size: 45px;
+            text-shadow: 0 0 15px #ff69a6;
+            animation: flotar 3s ease-in-out infinite;
+        }
 
-.invitacion .frase {
-    color: #555;
-    font-size: 16px;
-    margin-top: 30px;
-}
-    color: #444;
-    font-size: 17px;
-    margin-top: 30px;
-}
+        .objeto1 {
+            top: 20%;
+            left: 15%;
+        }
 
-    .entrada {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        .objeto2 {
+            top: 35%;
+            right: 20%;
+        }
 
-.entrada .mini-titulo {
-    color: #ff69a6;
-    font-size: 14px;
-    letter-spacing: 4px;
-    font-weight: bold;
-}
+        .objeto3 {
+            bottom: 20%;
+            left: 25%;
+        }
 
-.entrada .pequeno {
-    color: #f5b6d2;
-    font-size: 12px;
-    margin-top: 25px;
-}
+        .objeto4 {
+            top: 15%;
+            right: 35%;
+        }
 
-.entrada h1 {
-    color: white;
-    font-size: 42px;
-    margin: 20px 0 10px;
-}
+        .objeto5 {
+            bottom: 30%;
+            right: 15%;
+        }
 
-.entrada > p:not(.mini-titulo) {
-    color: #f5dce8;
-    font-size: 18px;
-}
+        .objeto6 {
+            bottom: 15%;
+            left: 45%;
+        }
 
-.entrada input {
-    width: 280px;
-    padding: 15px;
-    margin: 20px 0;
-    border: 2px solid #ff69a6;
-    border-radius: 30px;
-    background-color: #111;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    outline: none;
-}
+        @keyframes flotar {
 
-.entrada input::placeholder {
-    color: #999;
-}
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
 
-.entrada button {
-    padding: 14px 30px;
-    border: 2px solid #ff69a6;
-    border-radius: 30px;
-    background-color: #ff69a6;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    cursor: pointer;
-}
-    .entrada p {
-    color: #f5dce8 !important;
-}
+            50% {
+                transform: translateY(-25px) rotate(15deg);
+            }
 
-.entrada .mini-titulo {
-    color: #ff69a6 !important;
-}
+        }
 
-.entrada .pequeno {
-    color: #f5b6d2 !important;
-}
+
+        /* =========================
+           TARJETA DE CUMPLEAÑOS
+        ========================= */
+
+        .invitacion {
+            width: 90%;
+            max-width: 550px;
+            min-height: 500px;
+            margin: 0 auto;
+            padding: 50px 35px;
+            box-sizing: border-box;
+
+            background: linear-gradient(135deg, #ffd6e7, #fff0f7);
+
+            border: 4px solid #ff69a6;
+            border-radius: 30px;
+
+            box-shadow:
+                10px 10px 0px #111,
+                0px 0px 25px rgba(255, 105, 166, 0.7);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .invitacion::before {
+            content: "♡";
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 35px;
+            color: #ff69a6;
+            transform: rotate(-15deg);
+        }
+
+        .invitacion::after {
+            content: "✦";
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #ff2f92;
+            transform: rotate(15deg);
+        }
+
+        .invitacion .mini-titulo {
+            color: #ff2f92;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 6px;
+        }
+
+        .invitacion h1 {
+            color: #ff2f92;
+            font-size: 75px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 35px 0 20px;
+            text-shadow: 4px 4px 0px #111;
+        }
+
+        .invitacion .nombre {
+            color: #111;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 6px;
+            margin-top: 10px;
+        }
+
+        .invitacion .frase {
+            color: #555;
+            font-size: 16px;
+            margin-top: 35px;
+        }
+
     </style>
 </head>
 
+
 <body>
 
+
+    <!-- =========================
+         PANTALLA INICIAL
+    ========================== -->
+
     <div class="entrada">
+
         <p class="mini-titulo">✦ BIENVENIDA ✦</p>
 
         <h1>Antes de comenzar...</h1>
 
         <p>¿Cuál es tu nombre?</p>
 
-        <input type="text" id="nombre" placeholder="Escribe tu nombre...">
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Escribe tu nombre..."
+        >
 
-        <button onclick="entrar()">ENTRAR →</button>
+        <button onclick="entrar()">
+            ENTRAR →
+        </button>
 
-        <p class="pequeno">Una invitación creada especialmente para ti ♡</p>
+        <p class="pequeno">
+            Una invitación creada especialmente para ti ♡
+        </p>
+
     </div>
+
+
+    <!-- =========================
+         TRANSICIÓN
+    ========================== -->
+
+    <div class="transicion" id="transicion">
+
+        <span class="objeto objeto1">♡</span>
+        <span class="objeto objeto2">✦</span>
+        <span class="objeto objeto3">★</span>
+        <span class="objeto objeto4">♡</span>
+        <span class="objeto objeto5">✧</span>
+        <span class="objeto objeto6">✦</span>
+
+    </div>
+
+
+    <!-- =========================
+         TARJETA
+    ========================== -->
+
     <div class="invitacion" style="display: none;">
 
-    <p class="mini-titulo">✦ MI CUMPLEAÑOS ✦</p>
+        <p class="mini-titulo">
+            ✦ MI CUMPLEAÑOS ✦
+        </p>
 
-  <h1>ISABELLA</h1>
+        <h1>
+            ISABELLA
+        </h1>
 
-    <p class="nombre">ESTÁS INVITADA</p>
+        <p class="nombre">
+            ESTÁS INVITADA
+        </p>
 
-    <p class="frase">
-        Una celebración hecha especialmente para ti ♡
-    </p>
+        <p class="frase">
+            Una celebración hecha especialmente para ti ♡
+        </p>
 
-</div>
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script>
-    function entrar() {
-        const nombre = document.getElementById("nombre").value.trim();
 
-        if (nombre === "") {
-            alert("Por favor, escribe tu nombre ♡");
-            return;
+        function entrar() {
+
+            const nombre =
+                document.getElementById("nombre").value.trim();
+
+
+            if (nombre === "") {
+
+                alert("Por favor, escribe tu nombre ♡");
+
+                return;
+
+            }
+
+
+            /* Guardamos el nombre del invitado */
+
+            localStorage.setItem(
+                "nombreInvitado",
+                nombre
+            );
+
+
+            /* Ocultamos la pantalla inicial */
+
+            document.querySelector(".entrada").style.display = "none";
+
+
+            /* Mostramos la transición */
+
+            document.getElementById("transicion").style.display = "block";
+
         }
 
-        localStorage.setItem("nombreInvitado", nombre);
+    </script>
 
-        document.querySelector(".entrada").style.display = "none";
 
-        document.querySelector(".invitacion").style.display = "block";
-    }
-</script>
-    
 </body>
 </html>
