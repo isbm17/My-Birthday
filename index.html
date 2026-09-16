@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,6 +20,7 @@
             text-align: center;
             padding-top: 100px;
             margin: 0;
+            overflow-x: hidden;
         }
 
 
@@ -27,6 +30,7 @@
 
         .entrada {
             min-height: 80vh;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -60,13 +64,18 @@
         .entrada input {
             width: 280px;
             padding: 15px;
+
             margin: 20px 0;
+
             border: 2px solid #ff69a6;
             border-radius: 30px;
+
             background-color: #111;
             color: white;
+
             text-align: center;
             font-size: 16px;
+
             outline: none;
             box-sizing: border-box;
         }
@@ -77,106 +86,367 @@
 
         .entrada button {
             padding: 14px 30px;
+
             border: 2px solid #ff69a6;
             border-radius: 30px;
+
             background-color: #ff69a6;
             color: white;
+
             font-size: 15px;
             font-weight: bold;
             letter-spacing: 2px;
+
             cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .entrada button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff69a6;
         }
 
 
         /* =========================
-           TRANSICIÓN CON OBJETOS
+           TRANSICIÓN
         ========================= */
 
-      .transicion {
-    display: none;
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: #0b0b0b;
-    overflow: hidden;
-    z-index: 9999;
-}
+        .transicion {
+            display: none;
 
-.objeto {
-    position: absolute;
-    display: block;
-    color: #ff69a6;
-    text-shadow:
-        0 0 10px #ff69a6,
-        0 0 20px #ff69a6;
-    animation-name: flotar;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-}
-.objeto1  { top: 8%;  left: 10%; font-size: 42px; animation-duration: 3.2s; }
-.objeto2  { top: 12%; right: 18%; font-size: 30px; animation-duration: 4.1s; }
-.objeto3  { top: 28%; left: 25%; font-size: 52px; animation-duration: 2.7s; }
-.objeto4  { top: 18%; right: 38%; font-size: 35px; animation-duration: 3.8s; }
-.objeto5  { top: 45%; left: 8%; font-size: 28px; animation-duration: 4.5s; }
-.objeto6  { top: 55%; right: 12%; font-size: 48px; animation-duration: 3.5s; }
-.objeto7  { top: 72%; left: 18%; font-size: 34px; animation-duration: 2.9s; }
-.objeto8  { top: 80%; right: 30%; font-size: 55px; animation-duration: 4.2s; }
-.objeto9  { top: 35%; right: 7%; font-size: 30px; animation-duration: 3.1s; }
-.objeto10 { top: 65%; left: 42%; font-size: 38px; animation-duration: 4.7s; }
-.objeto11 { top: 5%;  left: 45%; font-size: 25px; animation-duration: 2.6s; }
-.objeto12 { top: 88%; left: 8%; font-size: 42px; animation-duration: 3.9s; }
-.objeto13 { top: 40%; left: 48%; font-size: 26px; animation-duration: 4.4s; }
-.objeto14 { top: 25%; left: 70%; font-size: 45px; animation-duration: 3.3s; }
-.objeto15 { top: 60%; right: 42%; font-size: 32px; animation-duration: 2.8s; }
-.objeto16 { top: 75%; right: 8%; font-size: 25px; animation-duration: 4.6s; }
-.objeto17 { top: 92%; left: 50%; font-size: 45px; animation-duration: 3.6s; }
-.objeto18 { top: 50%; left: 60%; font-size: 35px; animation-duration: 4.0s; }
-.objeto19 { top: 15%; left: 78%; font-size: 25px; animation-duration: 3.7s; }
-.objeto20 { top: 82%; left: 70%; font-size: 38px; animation-duration: 4.3s; }
+            position: fixed;
+            inset: 0;
 
-@keyframes flotar {
+            width: 100%;
+            height: 100%;
 
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
+            background: #0b0b0b;
 
-    50% {
-        transform: translateY(-25px) rotate(15deg);
-        opacity: 1;
-    }
+            overflow: hidden;
 
-    100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-}
+            z-index: 9999;
+        }
 
 
-/* MOVIMIENTO HACIA EL CENTRO */
+        /* =========================
+           OBJETOS
+        ========================= */
 
-.transicion.explotando .objeto {
-    animation: irAlCentro 1.5s ease-in forwards;
-}
+        .objeto {
+            position: absolute;
+
+            display: block;
+
+            color: #ff69a6;
+
+            text-shadow:
+                0 0 10px #ff69a6,
+                0 0 20px #ff69a6,
+                0 0 35px #ff2f92;
+
+            animation-name: flotar;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+
+            transition: opacity 0.3s;
+        }
 
 
-@keyframes irAlCentro {
+        .objeto1  {
+            top: 8%;
+            left: 10%;
+            font-size: 42px;
+            animation-duration: 3.2s;
+        }
 
-    0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-        opacity: 1;
-    }
+        .objeto2 {
+            top: 12%;
+            right: 18%;
+            font-size: 30px;
+            animation-duration: 4.1s;
+        }
 
-    100% {
-        transform: translate(
-            calc(50vw - 50%),
-            calc(50vh - 50%)
-        ) scale(0.3) rotate(360deg);
-        opacity: 0;
-    }
+        .objeto3 {
+            top: 28%;
+            left: 25%;
+            font-size: 52px;
+            animation-duration: 2.7s;
+        }
 
-}
+        .objeto4 {
+            top: 18%;
+            right: 38%;
+            font-size: 35px;
+            animation-duration: 3.8s;
+        }
+
+        .objeto5 {
+            top: 45%;
+            left: 8%;
+            font-size: 28px;
+            animation-duration: 4.5s;
+        }
+
+        .objeto6 {
+            top: 55%;
+            right: 12%;
+            font-size: 48px;
+            animation-duration: 3.5s;
+        }
+
+        .objeto7 {
+            top: 72%;
+            left: 18%;
+            font-size: 34px;
+            animation-duration: 2.9s;
+        }
+
+        .objeto8 {
+            top: 80%;
+            right: 30%;
+            font-size: 55px;
+            animation-duration: 4.2s;
+        }
+
+        .objeto9 {
+            top: 35%;
+            right: 7%;
+            font-size: 30px;
+            animation-duration: 3.1s;
+        }
+
+        .objeto10 {
+            top: 65%;
+            left: 42%;
+            font-size: 38px;
+            animation-duration: 4.7s;
+        }
+
+        .objeto11 {
+            top: 5%;
+            left: 45%;
+            font-size: 25px;
+            animation-duration: 2.6s;
+        }
+
+        .objeto12 {
+            top: 88%;
+            left: 8%;
+            font-size: 42px;
+            animation-duration: 3.9s;
+        }
+
+        .objeto13 {
+            top: 40%;
+            left: 48%;
+            font-size: 26px;
+            animation-duration: 4.4s;
+        }
+
+        .objeto14 {
+            top: 25%;
+            left: 70%;
+            font-size: 45px;
+            animation-duration: 3.3s;
+        }
+
+        .objeto15 {
+            top: 60%;
+            right: 42%;
+            font-size: 32px;
+            animation-duration: 2.8s;
+        }
+
+        .objeto16 {
+            top: 75%;
+            right: 8%;
+            font-size: 25px;
+            animation-duration: 4.6s;
+        }
+
+        .objeto17 {
+            top: 92%;
+            left: 50%;
+            font-size: 45px;
+            animation-duration: 3.6s;
+        }
+
+        .objeto18 {
+            top: 50%;
+            left: 60%;
+            font-size: 35px;
+            animation-duration: 4.0s;
+        }
+
+        .objeto19 {
+            top: 15%;
+            left: 78%;
+            font-size: 25px;
+            animation-duration: 3.7s;
+        }
+
+        .objeto20 {
+            top: 82%;
+            left: 70%;
+            font-size: 38px;
+            animation-duration: 4.3s;
+        }
+
+
+        /* =========================
+           MOVIMIENTO NORMAL
+        ========================= */
+
+        @keyframes flotar {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(15deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+        }
+
+
+        /* =========================
+           BRILLOS VIAJANDO AL CENTRO
+        ========================= */
+
+        .transicion.explotando .objeto {
+            animation: irAlCentro 1.4s ease-in forwards;
+        }
+
+
+        @keyframes irAlCentro {
+
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(
+                    var(--mov-x),
+                    var(--mov-y)
+                ) scale(0.2) rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================
+           GLITTER DE LA EXPLOSIÓN
+        ========================= */
+
+        .glitter {
+            position: absolute;
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #ff69a6;
+
+            box-shadow:
+                0 0 8px #ff69a6,
+                0 0 15px #ff2f92;
+
+            pointer-events: none;
+
+            animation: explosionGlitter 1.2s ease-out forwards;
+        }
+
+
+        @keyframes explosionGlitter {
+
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translate(
+                        calc(-50% + var(--glitter-x)),
+                        calc(-50% + var(--glitter-y))
+                    )
+                    scale(1.4);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================
+           BRILLO GRANDE DEL CENTRO
+        ========================= */
+
+        .destello {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            width: 20px;
+            height: 20px;
+
+            transform: translate(-50%, -50%) scale(0);
+
+            border-radius: 50%;
+
+            background: white;
+
+            box-shadow:
+                0 0 20px white,
+                0 0 50px #ff69a6,
+                0 0 100px #ff2f92;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+
+        .destello.activo {
+            animation: destelloExplosion 0.8s ease-out forwards;
+        }
+
+
+        @keyframes destelloExplosion {
+
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+
+            40% {
+                transform: translate(-50%, -50%) scale(8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(20);
+                opacity: 0;
+            }
+
+        }
+
+
         /* =========================
            TARJETA DE CUMPLEAÑOS
         ========================= */
@@ -184,14 +454,24 @@
         .invitacion {
             width: 90%;
             max-width: 550px;
+
             min-height: 500px;
+
             margin: 0 auto;
+
             padding: 50px 35px;
+
             box-sizing: border-box;
 
-            background: linear-gradient(135deg, #ffd6e7, #fff0f7);
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffd6e7,
+                    #fff0f7
+                );
 
             border: 4px solid #ff69a6;
+
             border-radius: 30px;
 
             box-shadow:
@@ -199,60 +479,118 @@
                 0px 0px 25px rgba(255, 105, 166, 0.7);
 
             position: relative;
+
             overflow: hidden;
         }
 
+
+        .invitacion.visible {
+            animation: aparecerTarjeta 1.2s ease-out forwards;
+        }
+
+
+        @keyframes aparecerTarjeta {
+
+            0% {
+                opacity: 0;
+                transform: scale(0.7) translateY(30px);
+            }
+
+            70% {
+                opacity: 1;
+                transform: scale(1.04) translateY(-5px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+
+        }
+
+
         .invitacion::before {
             content: "♡";
+
             position: absolute;
+
             top: 15px;
             left: 25px;
+
             font-size: 35px;
+
             color: #ff69a6;
+
             transform: rotate(-15deg);
         }
 
+
         .invitacion::after {
             content: "✦";
+
             position: absolute;
+
             bottom: 20px;
             right: 30px;
+
             font-size: 40px;
+
             color: #ff2f92;
+
             transform: rotate(15deg);
         }
 
+
         .invitacion .mini-titulo {
             color: #ff2f92;
+
             font-size: 14px;
+
             font-weight: bold;
+
             letter-spacing: 6px;
         }
+
 
         .invitacion h1 {
             color: #ff2f92;
+
             font-size: 75px;
+
             font-weight: 900;
+
             letter-spacing: 2px;
+
             margin: 35px 0 20px;
-            text-shadow: 4px 4px 0px #111;
+
+            text-shadow:
+                4px 4px 0px #111;
         }
+
 
         .invitacion .nombre {
             color: #111;
+
             font-size: 24px;
+
             font-weight: bold;
+
             letter-spacing: 6px;
+
             margin-top: 10px;
         }
 
+
         .invitacion .frase {
             color: #555;
+
             font-size: 16px;
+
             margin-top: 35px;
         }
 
     </style>
+
 </head>
 
 
@@ -261,15 +599,21 @@
 
     <!-- =========================
          PANTALLA INICIAL
-    ========================== -->
+    ========================= -->
 
     <div class="entrada">
 
-        <p class="mini-titulo">✦ BIENVENIDA ✦</p>
+        <p class="mini-titulo">
+            ✦ BIENVENIDA ✦
+        </p>
 
-        <h1>Antes de comenzar...</h1>
+        <h1>
+            Antes de comenzar...
+        </h1>
 
-        <p>¿Cuál es tu nombre?</p>
+        <p>
+            ¿Cuál es tu nombre?
+        </p>
 
         <input
             type="text"
@@ -287,116 +631,425 @@
 
     </div>
 
-  <!-- =========================
-     TRANSICIÓN
-========================== -->
 
-<div class="transicion" id="transicion">
+    <!-- =========================
+         TRANSICIÓN
+    ========================= -->
 
-    <span class="objeto objeto1">♡</span>
-    <span class="objeto objeto2">✦</span>
-    <span class="objeto objeto3">★</span>
-    <span class="objeto objeto4">♡</span>
-    <span class="objeto objeto5">✧</span>
-    <span class="objeto objeto6">✦</span>
-    <span class="objeto objeto7">♡</span>
-    <span class="objeto objeto8">★</span>
-    <span class="objeto objeto9">✧</span>
-    <span class="objeto objeto10">✦</span>
-    <span class="objeto objeto11">♡</span>
-    <span class="objeto objeto12">★</span>
-    <span class="objeto objeto13">✦</span>
-    <span class="objeto objeto14">♡</span>
-    <span class="objeto objeto15">✧</span>
-    <span class="objeto objeto16">★</span>
-    <span class="objeto objeto17">♡</span>
-    <span class="objeto objeto18">✦</span>
-    <span class="objeto objeto19">✧</span>
-    <span class="objeto objeto20">♡</span>
+    <div
+        class="transicion"
+        id="transicion"
+    >
 
-</div>
+        <span class="objeto objeto1">♡</span>
+        <span class="objeto objeto2">✦</span>
+        <span class="objeto objeto3">★</span>
+        <span class="objeto objeto4">♡</span>
+        <span class="objeto objeto5">✧</span>
+        <span class="objeto objeto6">✦</span>
+        <span class="objeto objeto7">♡</span>
+        <span class="objeto objeto8">★</span>
+        <span class="objeto objeto9">✧</span>
+        <span class="objeto objeto10">✦</span>
+        <span class="objeto objeto11">♡</span>
+        <span class="objeto objeto12">★</span>
+        <span class="objeto objeto13">✦</span>
+        <span class="objeto objeto14">♡</span>
+        <span class="objeto objeto15">✧</span>
+        <span class="objeto objeto16">★</span>
+        <span class="objeto objeto17">♡</span>
+        <span class="objeto objeto18">✦</span>
+        <span class="objeto objeto19">✧</span>
+        <span class="objeto objeto20">♡</span>
 
 
-<!-- =========================
-     TARJETA
-========================== -->
+        <div
+            class="destello"
+            id="destello"
+        ></div>
 
-<div class="invitacion" style="display: none;">
+    </div>
 
-    <p class="mini-titulo">
-        ✦ MI CUMPLEAÑOS ✦
-    </p>
 
-    <h1>
-        ISABELLA
-    </h1>
+    <!-- =========================
+         TARJETA
+    ========================= -->
 
-    <p class="nombre">
-        ESTÁS INVITADA
-    </p>
+    <div
+        class="invitacion"
+        id="invitacion"
+        style="display: none;"
+    >
 
-    <p class="frase">
-        Una celebración hecha especialmente para ti ♡
-    </p>
+        <p class="mini-titulo">
+            ✦ MI CUMPLEAÑOS ✦
+        </p>
 
-</div>
+        <h1>
+            ISABELLA
+        </h1>
+
+        <p class="nombre">
+            ESTÁS INVITADA
+        </p>
+
+        <p class="frase">
+            Una celebración hecha especialmente para ti ♡
+        </p>
+
+    </div>
 
 
     <!-- =========================
          JAVASCRIPT
-    ========================== -->
+    ========================= -->
 
     <script>
 
-      <script>
+        function entrar() {
 
-    function entrar() {
+            /* =========================
+               OBTENER NOMBRE
+            ========================= */
 
-        const nombre =
-            document.getElementById("nombre").value.trim();
+            const nombre =
+                document
+                    .getElementById("nombre")
+                    .value
+                    .trim();
 
 
-        if (nombre === "") {
+            if (nombre === "") {
 
-            alert("Por favor, escribe tu nombre ♡");
+                alert(
+                    "Por favor, escribe tu nombre ♡"
+                );
 
-            return;
+                return;
+
+            }
+
+
+            /* =========================
+               GUARDAR NOMBRE
+            ========================= */
+
+            localStorage.setItem(
+                "nombreInvitado",
+                nombre
+            );
+
+
+            /* =========================
+               OCULTAR ENTRADA
+            ========================= */
+
+            document
+                .querySelector(".entrada")
+                .style.display = "none";
+
+
+            /* =========================
+               MOSTRAR TRANSICIÓN
+            ========================= */
+
+            const transicion =
+                document.getElementById(
+                    "transicion"
+                );
+
+            transicion.style.display =
+                "block";
+
+
+            /* =========================
+               CALCULAR MOVIMIENTO
+               HACIA EL CENTRO
+            ========================= */
+
+            const objetos =
+                document.querySelectorAll(
+                    ".objeto"
+                );
+
+
+            objetos.forEach(function(objeto) {
+
+                const rect =
+                    objeto.getBoundingClientRect();
+
+
+                const objetoX =
+                    rect.left +
+                    rect.width / 2;
+
+
+                const objetoY =
+                    rect.top +
+                    rect.height / 2;
+
+
+                const centroX =
+                    window.innerWidth / 2;
+
+
+                const centroY =
+                    window.innerHeight / 2;
+
+
+                const movimientoX =
+                    centroX - objetoX;
+
+
+                const movimientoY =
+                    centroY - objetoY;
+
+
+                objeto.style.setProperty(
+                    "--mov-x",
+                    movimientoX + "px"
+                );
+
+
+                objeto.style.setProperty(
+                    "--mov-y",
+                    movimientoY + "px"
+                );
+
+            });
+
+
+            /* =========================
+               DESPUÉS DE 3 SEGUNDOS:
+               VAN AL CENTRO
+            ========================= */
+
+            setTimeout(function() {
+
+                transicion.classList.add(
+                    "explotando"
+                );
+
+            }, 3000);
+
+
+            /* =========================
+               DESPUÉS DEL MOVIMIENTO:
+               EXPLOSIÓN
+            ========================= */
+
+            setTimeout(function() {
+
+                crearExplosion();
+
+            }, 4500);
+
+
+            /* =========================
+               DESPUÉS DE LA EXPLOSIÓN:
+               APARECE LA TARJETA
+            ========================= */
+
+            setTimeout(function() {
+
+                mostrarTarjeta();
+
+            }, 5500);
 
         }
 
 
-        /* Guardamos el nombre del invitado */
+        /* =========================
+           CREAR EXPLOSIÓN
+        ========================= */
 
-        localStorage.setItem(
-            "nombreInvitado",
-            nombre
-        );
+        function crearExplosion() {
 
-
-        /* Ocultamos la pantalla inicial */
-
-        document.querySelector(".entrada").style.display = "none";
-
-
-        /* Mostramos la transición */
-
-        const transicion =
-            document.getElementById("transicion");
-
-        transicion.style.display = "block";
+            const transicion =
+                document.getElementById(
+                    "transicion"
+                );
 
 
-        /* Después de 3 segundos comienza el movimiento */
+            /* Ocultamos los objetos */
 
-        setTimeout(function() {
+            const objetos =
+                document.querySelectorAll(
+                    ".objeto"
+                );
 
-            transicion.classList.add("explotando");
 
-        }, 3000);
+            objetos.forEach(function(objeto) {
 
-    }
+                objeto.style.display =
+                    "none";
 
-</script>
+            });
+
+
+            /* Activamos el destello */
+
+            const destello =
+                document.getElementById(
+                    "destello"
+                );
+
+
+            destello.classList.add(
+                "activo"
+            );
+
+
+            /* =========================
+               CREAR 100 PARTÍCULAS
+            ========================= */
+
+            for (
+                let i = 0;
+                i < 100;
+                i++
+            ) {
+
+                const glitter =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                glitter.classList.add(
+                    "glitter"
+                );
+
+
+                /* Posición inicial: centro */
+
+                glitter.style.left =
+                    "50%";
+
+                glitter.style.top =
+                    "50%";
+
+
+                /* Dirección aleatoria */
+
+                const angulo =
+                    Math.random() *
+                    Math.PI *
+                    2;
+
+
+                const distancia =
+                    100 +
+                    Math.random() *
+                    400;
+
+
+                const x =
+                    Math.cos(angulo) *
+                    distancia;
+
+
+                const y =
+                    Math.sin(angulo) *
+                    distancia;
+
+
+                glitter.style.setProperty(
+                    "--glitter-x",
+                    x + "px"
+                );
+
+
+                glitter.style.setProperty(
+                    "--glitter-y",
+                    y + "px"
+                );
+
+
+                /* Tamaño aleatorio */
+
+                const tamaño =
+                    3 +
+                    Math.random() * 7;
+
+
+                glitter.style.width =
+                    tamaño + "px";
+
+
+                glitter.style.height =
+                    tamaño + "px";
+
+
+                /* Variación de velocidad */
+
+                glitter.style.animationDuration =
+                    (0.7 +
+                    Math.random() * 0.7)
+                    + "s";
+
+
+                transicion.appendChild(
+                    glitter
+                );
+
+
+                /* Eliminar después */
+
+                setTimeout(
+                    function() {
+
+                        glitter.remove();
+
+                    },
+                    1500
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           MOSTRAR TARJETA
+        ========================= */
+
+        function mostrarTarjeta() {
+
+            const transicion =
+                document.getElementById(
+                    "transicion"
+                );
+
+
+            const invitacion =
+                document.getElementById(
+                    "invitacion"
+                );
+
+
+            /* Ocultamos la transición */
+
+            transicion.style.display =
+                "none";
+
+
+            /* Mostramos la tarjeta */
+
+            invitacion.style.display =
+                "block";
+
+
+            invitacion.classList.add(
+                "visible"
+            );
+
+        }
+
+    </script>
+
 
 </body>
+
 </html>
+
