@@ -140,5 +140,21 @@ h1 {
         <p class="pequeno">Una invitación creada especialmente para ti ♡</p>
     </div>
 
+    <script>
+    function entrar() {
+        const nombre = document.getElementById("nombre").value.trim();
+
+        if (nombre === "") {
+            alert("Por favor, escribe tu nombre ♡");
+            return;
+        }
+
+        localStorage.setItem("nombreInvitado", nombre);
+
+        alert("Nombre guardado: " + nombre);
+    }
+        
+</script>
+    
 </body>
 </html>
