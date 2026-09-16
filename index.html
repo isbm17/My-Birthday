@@ -143,7 +143,7 @@ h1 {
 
     <p class="mini-titulo">✦ MI CUMPLEAÑOS ✦</p>
 
-    <h1>ISABELLA</h1>
+   <h1 id="nombreMostrado"></h1>
 
     <p class="nombre">ESTÁS INVITADA</p>
 
@@ -163,6 +163,8 @@ h1 {
         }
 
         localStorage.setItem("nombreInvitado", nombre);
+        
+        document.getElementById("nombreMostrado").textContent = nombre.toUpperCase();
 
         document.querySelector(".entrada").style.display = "none";
 
